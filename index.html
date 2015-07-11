@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular mega menu</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bower_components/yamm3/yamm/yamm.css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="src/js/angular-mega-menu.js"></script>
+</head>
+<body ng-app="test">
+	<nav class="navbar yamm navbar-default navbar-fixed-top" role="navigation">
+		<div class="container-fuild">
+
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Angular Mega Menu </a>
+			</div>
+		
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+			        <li class="dropdown" dropdown>
+			            <a class="dropdown-toggle" dropdown-toggle event-toggle="mouseover" href="#" >List <b class="caret"></b></a>
+			            <ul class="dropdown-menu">
+			                <li>
+			                    <div class="yamm-content">
+				                    <div class="row">
+				                      <ul class="col-sm-3 list-unstyled">
+				                        <li>
+				                          <p><strong>Section Title</strong></p>
+				                        </li>
+				                        <li>List Item</li>
+				                        <li>List Item</li>
+				                        <li>List Item</li>
+				                        <li>List Item</li>
+				                        <li>List Item</li>
+				                        <li>List Item</li>
+				                      </ul>
+				                      <ul class="col-sm-3 list-unstyled">
+				                        <li>
+				                          <p><strong>Links Title</strong></p>
+				                        </li>
+				                        <li><a href="#"> Link Item </a></li>
+				                        <li><a href="#"> Link Item </a></li>
+				                        <li><a href="#"> Link Item </a></li>
+				                        <li><a href="#"> Link Item </a></li>
+				                        <li><a href="#"> Link Item </a></li>
+				                        <li><a href="#"> Link Item </a></li>
+				                      </ul>
+				                      <ul class="col-sm-3 list-unstyled">
+				                        <li>
+				                          <p><strong>Section Title</strong></p>
+				                        </li>
+				                        <li>List Item</li>
+				                        <li>List Item</li>
+				                        <li>List Item</li>
+				                        <li>List Item</li>
+				                        <li>List Item</li>
+				                        <li>List Item</li>
+				                      </ul>
+				                      <ul class="col-sm-3 list-unstyled">
+				                        <li>
+				                          <p><strong>Section Title</strong></p>
+				                        </li>
+				                        <li>List Item</li>
+				                        <li>List Item</li>
+				                        <li>
+				                          <ul>
+				                            <li><a href="#"> Link Item </a></li>
+				                            <li><a href="#"> Link Item </a></li>
+				                            <li><a href="#"> Link Item </a></li>
+				                          </ul>
+				                        </li>
+				                      </ul>
+				                    </div>
+				                </div>
+			                 </li>
+			            </ul>
+			        </li>
+					<li class="dropdown" dropdown>
+					  <a class="dropdown-toggle" dropdown-toggle event-toggle="mouseover" href="#">Accordion<b class="caret"></b></a>
+		              <ul class="dropdown-menu">
+		                <li>
+		                  <div class="yamm-content">
+		                    <div class="row">
+		                      <div id="accordion" class="panel-group">
+		                        <div class="panel panel-default">
+		                          <div class="panel-heading">
+		                            <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Collapsible Group Item #1</a></h4>
+		                          </div>
+		                          <div id="collapseOne" class="panel-collapse collapse in">
+		                            <div class="panel-body">Ut consectetur ullamcorper purus a rutrum. Etiam dui nisi, hendrerit feugiat scelerisque et, cursus eu magna. </div>
+		                          </div>
+		                        </div>
+		                        <div class="panel panel-default">
+		                          <div class="panel-heading">
+		                            <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Collapsible Group Item #2</a></h4>
+		                          </div>
+		                          <div id="collapseTwo" class="panel-collapse collapse">
+		                            <div class="panel-body">Nullam pretium fermentum sapien ut convallis. Suspendisse vehicula, magna non tristique tincidunt, massa nisi luctus tellus, vel laoreet sem lectus ut nibh. </div>
+		                          </div>
+		                        </div>
+		                        <div class="panel panel-default">
+		                          <div class="panel-heading">
+		                            <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Collapsible Group Item #3</a></h4>
+		                          </div>
+		                          <div id="collapseThree" class="panel-collapse collapse">
+		                            <div class="panel-body">Praesent leo quam, faucibus at facilisis id, rhoncus sit amet metus. Sed vitae ipsum non nibh mattis congue eget id augue. </div>
+		                          </div>
+		                        </div>
+		                      </div>
+		                    </div>
+		                  </div>
+		                </li>
+		              </ul>
+		            </li>
+				    <li class="dropdown" dropdown>
+				      <a class="dropdown-toggle" dropdown-toggle event-toggle="mouseover" href="#">Classic<b class="caret"></b></a>
+		              <ul role="menu" class="dropdown-menu">
+		                <li><a tabindex="-1" href="#"> Action </a></li>
+		                <li><a tabindex="-1" href="#"> Another action </a></li>
+		                <li><a tabindex="-1" href="#"> Something else here </a></li>
+		                <li class="divider"></li>
+		                <li><a tabindex="-1" href="#"> Separated link </a></li>
+		              </ul>
+		            </li>
+		            <!-- Pictures -->
+		            <li class="dropdown yamm-fw" dropdown>
+		              <a class="dropdown-toggle" dropdown-toggle event-toggle="mouseover" href="#">Pictures<b class="caret"></b></a>
+		              <ul class="dropdown-menu">
+		                <li>
+		                  <div class="yamm-content">
+		                    <div class="row">
+		                      <div class="col-xs-6 col-sm-2"><a href="#" class="thumbnail"><img alt="150x190" src="img/190.jpg"></a></div>
+		                      <div class="col-xs-6 col-sm-2"><a href="#" class="thumbnail"><img alt="150x190" src="img/190.jpg"></a></div>
+		                      <div class="col-xs-6 col-sm-2"><a href="#" class="thumbnail"><img alt="150x190" src="img/190.jpg"></a></div>
+		                      <div class="col-xs-6 col-sm-2"><a href="#" class="thumbnail"><img alt="150x190" src="img/190.jpg"></a></div>
+		                      <div class="col-xs-6 col-sm-2"><a href="#" class="thumbnail"><img alt="150x190" src="img/190.jpg"></a></div>
+		                      <div class="col-xs-6 col-sm-2"><a href="#" class="thumbnail"><img alt="150x190" src="img/190.jpg"></a></div>
+		                    </div>
+		                  </div>
+		                </li>
+		              </ul>
+		            </li>
+    			</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="jumbotron intro">
+      <div class="container">
+        <h1 class="page-header">Hello, Angular Mega Menu!</h1>
+        <p>This is <i>angular mega menu </i>, base on <a href="https://github.com/angular-ui/bootstrap">angular-ui/bootstrap</a> dropdown directive and <a href="https://github.com/geedmo/yamm3">geedmo/yamm3</a>.</p>
+        <p>Angular mega menu is extend from dropdown directive, so you use it just like using dropdown directive. <p>
+        <p><a href="https://github.com/hjzheng/angular-mega-menu" class="btn btn-default btn-lg">View on Github</a> <a href="https://github.com/hjzheng/angular-mega-menu/archive/master.zip" class="btn btn-primary btn-lg">Download</a></p>
+      </div>
+    </div>
+	<div class="container">	
+	    <div class="row">
+	    	<h2>How to Use</h2>
+	    </div>
+	    <div class="row">
+	        <div class="col-md-4">
+	          <p class="lead">1. Include JS and CSS.</p>
+	          <ul>
+				<li>
+				   <p>Bootstrap and Yamm3 CSS</p>
+				</li>
+				<li>
+				    <p>Angular ui-bootstrap and Angular mega menu JS</p>
+				</li>
+			  </ul>
+	        </div>
+	        <div class="col-md-8">
+	          <pre class="prettyprint linenums">&lt;link rel=&quot;stylesheet&quot; href=&quot;bower_components/bootstrap/dist/css/bootstrap.min.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;bower_components/bootstrap/dist/css/bootstrap-theme.min.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;bower_components/yamm3/yamm/yamm.css&quot;&gt;
+&lt;script src=&quot;bower_components/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;bower_components/angular/angular.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;bower_components/angular-bootstrap/ui-bootstrap-tpls.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;src/js/angular-mega-menu.js&quot;&gt;&lt;/script&gt;</pre>
+	        </div>
+	    </div>
+	    <div class="row">
+	        <div class="col-md-4">
+	          <p class="lead">2. Configure angular module</p>
+	        </div>
+	        <div class="col-md-8">
+	          <pre class="prettyprint linenums">angular.module('test', ['mega-menu']);</pre>
+	        </div>
+	    </div>
+	    <div class="row">
+	        <div class="col-md-4">
+	          <p class="lead">3. Use bootstrap-ui dropdown directive</p>
+	          <ul>
+	              <li>Use dropdown directive.</li>
+	              <li><strong>Set <code>event-toggle</code> attribute, default value is 'click', you can set value 'mouseover'.</strong></li>
+	          </ul>
+	        </div>
+	        <div class="col-md-8">
+	          <pre class="prettyprint linenums">...
+&lt;li class=&quot;dropdown&quot; dropdown&gt;
+  &lt;a class=&quot;dropdown-toggle&quot; dropdown-toggle event-toggle=&quot;mouseover&quot; href=&quot;#&quot;&gt;Classic&lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;&lt;/a&gt;
+  &lt;ul role=&quot;menu&quot; class=&quot;dropdown-menu&quot;&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt; Action &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt; Another action &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt; Something else here &lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt; Separated link &lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/li&gt;
+...</pre>
+	        </div>
+	    </div>
+	    <div class="row">
+	    	<h2>More Example (from Yamm3)</h2>
+	    </div>
+	    <div class="navbar navbar-default yamm">
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target="#navbar-collapse-2" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">Yamm Mega Menu</a>
+          </div>
+          <div id="navbar-collapse-2" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <!-- Media Example -->
+              <li class="dropdown open" dropdown>
+                <a href="#" class="dropdown-toggle" dropdown-toggle event-toggle="mouseover">Media<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="yamm-content">
+                      <ul class="media-list">
+                        <li class="media"><a href="#" class="pull-right"><img src="img/64x64.gif" alt="64x64" class="media-object"></a>
+                          <div class="media-body">
+                            <h4 class="media-heading">Media heading</h4>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante.
+                          </div>
+                        </li>
+                        <li class="media"><a href="#" class="pull-right"><img src="img/64x64.gif" alt="64x64" class="media-object"></a>
+                          <div class="media-body">
+                            <h4 class="media-heading">Media heading</h4>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!-- Tables -->
+              <li class="dropdown yamm-fullwidth" dropdown>
+                <a href="#"  class="dropdown-toggle" dropdown-toggle event-toggle="mouseover">Tables <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="yamm-content">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!-- Thumbnails demo -->
+              <li class="dropdown" dropdown>
+                <a href="#" class="dropdown-toggle" dropdown-toggle event-toggle="mouseover">Thumbnails<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="yamm-content">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="thumbnail"><img alt="260x130" src="img/260.jpg">
+                            <div class="caption">
+                              <h3>Thumb Label</h3>
+                              <p>Mazagran doppio half and half aftertaste organic, rich doppio</p>
+                              <p><a href="#" class="btn btn-primary">Action</a> <a href="#" class="btn btn-default">Action</a></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="thumbnail"><img alt="260x130" src="img/260.jpg">
+                            <div class="caption">
+                              <h3>Thumb Label</h3>
+                              <p>Black latte cinnamon, cultivar trifecta crema cappuccino</p>
+                              <p><a href="#" class="btn btn-primary">Action</a> <a href="#" class="btn btn-default">Action</a></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="thumbnail"><img alt="260x130" src="img/260.jpg">
+                            <div class="caption">
+                              <h3>Thumb Label</h3>
+                              <p>Bar roast et, as latte café au lait, mocha aromatic robusta</p>
+                              <p><a href="#" class="btn btn-primary">Action </a> <a href="#" class="btn btn-default">Action </a></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- Forms -->
+              <li class="dropdown" dropdown>
+                <a href="#" dropdown-toggle event-toggle="click" class="dropdown-toggle">Forms (click me !) <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="yamm-content">
+                      <form action="send.php">
+                        <div class="form-group">
+                          <input id="inputName" type="text" placeholder="Name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <input id="inputEmail" type="password" placeholder="Email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <textarea placeholder="Write your message.." class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <button type="submit" class="btn btn-success">Send</button>
+                        </div>
+                      </form>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row" style="height:400px;">
+
+        </div>
+    </div>
+</body>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script type="text/javascript">
+	angular.module('test', ['mega-menu']);
+</script>
+</html>

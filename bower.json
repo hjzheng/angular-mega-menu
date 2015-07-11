@@ -1,0 +1,21 @@
+{
+  "name": "angular-mega-menu",
+  "version": "0.0.0",
+  "homepage": "https://github.com/hjzheng/angular-mega-menu",
+  "authors": [
+    "hjzheng <zhenghaoju700@163.com>"
+  ],
+  "description": "base on angular-ui/bootstrap and geedmo/yamm3",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.13.0",
+    "yamm3": "~1.1.0"
+  }
+}
