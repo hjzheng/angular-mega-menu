@@ -1,7 +1,6 @@
-# angular-mega-menu
+# angular-mega-menu 
 
-This is angular mega menu, base on [angular-ui/bootstrap](https://github.com/angular-ui/bootstrap) dropdown directive and [geedmo/yamm3](This is angular mega menu, base on [angular-ui/bootstrap](https://github.com/angular-ui/bootstrap) dropdown directive and [geedmo/yamm3]().
-).
+This is angular mega menu, base on [angular-ui/bootstrap](https://github.com/angular-ui/bootstrap) dropdown directive and [geedmo/yamm3](https://github.com/geedmo/yamm3).
 
 Angular mega menu is extend from dropdown directive, so you use it just like using dropdown directive.
 
@@ -43,3 +42,5 @@ angular.module('test', ['mega-menu']);
 ...
 ```
 ### Example
+
+Please visit http://get-set.cn/angular-mega-menu/
