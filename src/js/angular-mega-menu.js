@@ -16,6 +16,8 @@
 
 		    directive.compile = function() {
 		      return function(scope, element, attrs, dropdownCtrl) {
+
+                  var toggleEvent = attrs.toggleEvent || "click";
 		  
 				  if ( !dropdownCtrl ) {
 			        return;
@@ -26,7 +28,7 @@
 			      var toggleDropdown = function(evt) {
 			        evt.preventDefault();
 					
-					if ( evt && element && element[0].parentElement.contains(evt.target) && dropdownCtrl.isOpen() && attrs.eventToggle == "mouseover" ) {
+					if ( evt && element && element[0].parentElement.contains(evt.target) && dropdownCtrl.isOpen() && attrs.toggleEvent == "mouseover" ) {
 					   return;
 					}
 
@@ -37,11 +39,9 @@
 			        }
 			      };
 
-				  if(attrs.eventToggle !== "mouseover"){
-			      	element.bind('click', toggleDropdown);
-			      } else {
-			        element.bind('mouseover', toggleDropdown);
-			      }
+
+			      element.bind(toggleEvent, toggleDropdown);
+
 
 			      // WAI-ARIA
 			      element.attr({ 'aria-haspopup': true, 'aria-expanded': false });
@@ -50,11 +50,7 @@
 			      });
 
 			      scope.$on('$destroy', function() {
-			      	if(attrs.eventToggle !== "mouseover"){
-			      		element.unbind('click', toggleDropdown);	
-			      	} else {
-			        	element.unbind('mouseover', toggleDropdown);
-			      	}
+			        element.unbind(toggleEvent, toggleDropdown);
 			      });
 			      
 		      };
@@ -83,15 +79,11 @@
 		    var open = function( dropdownScope ) {
 
 		    	var toggleElement = dropdownScope.getToggleElement();
-		    	var eventToggle = toggleElement.attr("event-toggle");
+		    	var toggleEvent = toggleElement.attr("toggle-event") || "click";
 
 			    if ( !openScope ) {
-			      if(eventToggle == 'mouseover'){
-			      	$document.bind('mouseover', closeDropdown);
-			      } else{	
-			      	$document.bind('click', closeDropdown);
+			      	$document.bind(toggleEvent, closeDropdown);
 			      	$document.bind('keydown', keybindFilter);
-			      }
 			    }
 
 			    if ( openScope && openScope !== dropdownScope ) {
@@ -103,16 +95,12 @@
 
 		  	var close = function( dropdownScope ) {
 		  		var toggleElement = dropdownScope.getToggleElement();
-		    	var eventToggle = toggleElement.attr("event-toggle");
+                var toggleEvent = toggleElement.attr("toggle-event") || "click";
 
 			    if ( openScope === dropdownScope ) {
 			      openScope = null;
-			      if(eventToggle == 'mouseover'){
-			      	$document.unbind('mouseover', closeDropdown);
-			      } else{		
-			      	$document.unbind('click', closeDropdown);
-			      	$document.unbind('keydown', keybindFilter);
-			      }
+			      $document.unbind(toggleEvent, closeDropdown);
+			      $document.unbind('keydown', keybindFilter);
 			    }
 		  	};
 
