@@ -24,7 +24,7 @@ angular.module('test', ['mega-menu']);
 
 - Use bootstrap-ui dropdown directive
     - Use dropdown directive.
-    - *Set `toggle-event` attribute, default value is `'click'`, you can set value `'mouseover'`.*
+    - **Set `toggle-event` attribute, default value is `'click'`, you can set value `'mouseover'`.**
 
 ```html
 ...
