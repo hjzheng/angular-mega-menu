@@ -217,9 +217,9 @@
 	    </div>
 	    <div class="navbar navbar-default yamm">
           <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target="#navbar-collapse-2" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">Yamm Mega Menu</a>
+            <button type="button" ng-click="isCollapsed = !isCollapsed" data-toggle="collapse" data-target="#navbar-collapse-2" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">Yamm Mega Menu</a>
           </div>
-          <div id="navbar-collapse-2" class="navbar-collapse collapse">
+          <div id="navbar-collapse-2" class="navbar-collapse collapse" collapse="isCollapsed">
             <ul class="nav navbar-nav">
               <!-- Media Example -->
               <li class="dropdown open" dropdown>
