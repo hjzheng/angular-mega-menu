@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-bootstrap": "~0.13.0",
-    "yamm3": "~1.1.0"
+    "angular-bootstrap": ">=1.x",
+    "yamm3": "https://github.com/geedmo/yamm3.git#master"
   }
 }
