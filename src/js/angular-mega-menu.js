@@ -1,143 +1,143 @@
 (function() {
 
-    angular.module("mega-menu", ["ui.bootstrap"]);
+	angular.module('mega-menu', ['ui.bootstrap']);
 
-    angular.module('mega-menu').config(ExtendDropdownToggleDirective);
+	angular.module('mega-menu').config(ExtendDropdownToggleDirective);
 
 	ExtendDropdownToggleDirective.$inject = ['$provide'];
 
 	function ExtendDropdownToggleDirective($provide) {
 
-        $provide.decorator('dropdownToggleDirective', ["$delegate", "$document", function($delegate, $document) {
+		$provide.decorator('uibDropdownToggleDirective', ['$delegate', '$document', function($delegate, $document) {
 
-            var directive = $delegate[0];
+			var directive = $delegate[0];
 
-            var link = directive.link;
+			var link = directive.link;
 
-		    directive.compile = function() {
-		      return function(scope, element, attrs, dropdownCtrl) {
+			directive.compile = function() {
+			return function(scope, element, attrs, dropdownCtrl) {
 
-                  var toggleEvent = attrs.toggleEvent || "click";
-		  
-				  if ( !dropdownCtrl ) {
-			        return;
-			      }
+				var toggleEvent = attrs.toggleEvent || 'click';
 
-			      dropdownCtrl.toggleElement = element;
+				if ( !dropdownCtrl ) {
+					return;
+				}
 
-			      var toggleDropdown = function(evt) {
-			        evt.preventDefault();
-					
-					if ( evt && element && element[0].parentElement.contains(evt.target) && dropdownCtrl.isOpen() && attrs.toggleEvent == "mouseover" ) {
-					   return;
+				dropdownCtrl.toggleElement = element;
+
+				var toggleDropdown = function(evt) {
+					evt.preventDefault();
+
+					if ( evt && element && element[0].parentElement.contains(evt.target) && dropdownCtrl.isOpen() && attrs.toggleEvent == 'mouseover' ) {
+					 return;
 					}
 
-			        if ( !element.hasClass('disabled') && !attrs.disabled ) {
-			          scope.$apply(function() {
-			            dropdownCtrl.toggle();
-			          });
-			        }
-			      };
+					if ( !element.hasClass('disabled') && !attrs.disabled ) {
+					scope.$apply(function() {
+						dropdownCtrl.toggle();
+					});
+					}
+				};
 
 
-			      element.bind(toggleEvent, toggleDropdown);
+				element.bind(toggleEvent, toggleDropdown);
 
 
-			      // WAI-ARIA
-			      element.attr({ 'aria-haspopup': true, 'aria-expanded': false });
-			      scope.$watch(dropdownCtrl.isOpen, function( isOpen ) {
-			        element.attr('aria-expanded', !!isOpen);
-			      });
+				// WAI-ARIA
+				element.attr({ 'aria-haspopup': true, 'aria-expanded': false });
+				scope.$watch(dropdownCtrl.isOpen, function( isOpen ) {
+					element.attr('aria-expanded', !!isOpen);
+				});
 
-			      scope.$on('$destroy', function() {
-			        element.unbind(toggleEvent, toggleDropdown);
-			      });
-			      
-		      };
-		    };
+				scope.$on('$destroy', function() {
+					element.unbind(toggleEvent, toggleDropdown);
+				});
 
-            return $delegate;
-        }]);
+			};
+			};
 
-		$provide.decorator('dropdownService', ['$delegate', '$document', '$rootScope', function ($delegate, $document, $rootScope) {
+			return $delegate;
+		}]);
+
+		$provide.decorator('uibDropdownService', ['$delegate', '$document', '$rootScope', function ($delegate, $document, $rootScope) {
 			//var openBackup = $delegate.open;
 			//var closeBackup = $delegate.close;
 
-            //override open method
-		    $delegate.open = function () {
-		      	open.apply($delegate, arguments);
-		    };
-
-		    //override close method
-		    $delegate.close = function () {
-		      	close.apply($delegate, arguments);
-		    };
-
-
-		    var openScope = null;
-
-		    var open = function( dropdownScope ) {
-
-		    	var toggleElement = dropdownScope.getToggleElement();
-		    	var toggleEvent = toggleElement.attr("toggle-event") || "click";
-
-			    if ( !openScope ) {
-			      	$document.bind(toggleEvent, closeDropdown);
-			      	$document.bind('keydown', keybindFilter);
-			    }
-
-			    if ( openScope && openScope !== dropdownScope ) {
-			      openScope.isOpen = false;
-			    }
-
-			    openScope = dropdownScope;
+			//override open method
+			$delegate.open = function () {
+				open.apply($delegate, arguments);
 			};
 
-		  	var close = function( dropdownScope ) {
-		  		var toggleElement = dropdownScope.getToggleElement();
-                var toggleEvent = toggleElement.attr("toggle-event") || "click";
+			//override close method
+			$delegate.close = function () {
+				close.apply($delegate, arguments);
+			};
 
-			    if ( openScope === dropdownScope ) {
-			      openScope = null;
-			      $document.unbind(toggleEvent, closeDropdown);
-			      $document.unbind('keydown', keybindFilter);
-			    }
-		  	};
 
-		    var closeDropdown = function( evt ) {
-			    // This method may still be called during the same mouse event that
-			    // unbound this event handler. So check openScope before proceeding.
-			    if (!openScope) { return; }
+			var openScope = null;
 
-			    if( evt && openScope.getAutoClose() === 'disabled' )  { return ; }
+			var open = function( dropdownScope ) {
 
-			    var toggleElement = openScope.getToggleElement();
-			    if ( evt && toggleElement && toggleElement[0].parentElement.contains(evt.target) ) {
-			      return;
-			    }
+				var toggleElement = dropdownScope.getToggleElement();
+				var toggleEvent = toggleElement.attr('toggle-event') || 'click';
 
-			    var $element = openScope.getElement();
-			    if( evt && openScope.getAutoClose() === 'outsideClick' && $element && $element[0].contains(evt.target) ) {
-			      return;
-			    }
+				if ( !openScope ) {
+					$document.bind(toggleEvent, closeDropdown);
+					$document.bind('keydown', keybindFilter);
+				}
 
-			    openScope.isOpen = false;
+				if ( openScope && openScope !== dropdownScope ) {
+					openScope.isOpen = false;
+				}
 
-			    if (!$rootScope.$$phase) {
-			      openScope.$apply();
-			    }
-		    };
+				openScope = dropdownScope;
+			};
 
-		    var keybindFilter = function( evt ) {
-			    if ( evt.which === 27 ) {
-			      openScope.focusToggleElement();
-			      closeDropdown();
-			    }
-			    else if ( openScope.isKeynavEnabled() && /(38|40)/.test(evt.which) && openScope.isOpen ) {
-			      evt.preventDefault();
-			      evt.stopPropagation();
-			      openScope.focusDropdownEntry(evt.which);
-			    }
+			var close = function( dropdownScope ) {
+				var toggleElement = dropdownScope.getToggleElement();
+				var toggleEvent = toggleElement.attr('toggle-event') || 'click';
+
+				if ( openScope === dropdownScope ) {
+					openScope = null;
+					$document.unbind(toggleEvent, closeDropdown);
+					$document.unbind('keydown', keybindFilter);
+				}
+			};
+
+			var closeDropdown = function( evt ) {
+				// This method may still be called during the same mouse event that
+				// unbound this event handler. So check openScope before proceeding.
+				if (!openScope) { return; }
+
+				if( evt && openScope.getAutoClose() === 'disabled' ){ return ; }
+
+				var toggleElement = openScope.getToggleElement();
+				if ( evt && toggleElement && toggleElement[0].parentElement.contains(evt.target) ) {
+					return;
+				}
+
+				var $element = openScope.getElement();
+				if( evt && openScope.getAutoClose() === 'outsideClick' && $element && $element[0].contains(evt.target) ) {
+					return;
+				}
+
+				openScope.isOpen = false;
+
+				if (!$rootScope.$$phase) {
+					openScope.$apply();
+				}
+			};
+
+			var keybindFilter = function( evt ) {
+				if ( evt.which === 27 ) {
+					openScope.focusToggleElement();
+					closeDropdown();
+				}
+				else if ( openScope.isKeynavEnabled() && /(38|40)/.test(evt.which) && openScope.isOpen ) {
+					evt.preventDefault();
+					evt.stopPropagation();
+					openScope.focusDropdownEntry(evt.which);
+				}
 			};
 
 			return $delegate;
