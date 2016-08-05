@@ -7,6 +7,9 @@
   ],
   "description": "base on angular-ui/bootstrap and geedmo/yamm3",
   "license": "MIT",
+  "main": [
+    "src/js/angular-mega-menu.js"
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
