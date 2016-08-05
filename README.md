@@ -1,4 +1,4 @@
-# angular-mega-menu 
+# angular-mega-menu
 
 This is angular mega menu, base on [angular-ui/bootstrap](https://github.com/angular-ui/bootstrap) dropdown directive and [geedmo/yamm3](https://github.com/geedmo/yamm3).
 
@@ -23,20 +23,20 @@ angular.module('test', ['mega-menu']);
 ```
 
 - Use bootstrap-ui dropdown directive
-    - Use dropdown directive.
-    - **Set `toggle-event` attribute, default value is `'click'`, you can set value `'mouseover'`.**
+	- Use dropdown directive.
+	- **Set `toggle-event` attribute, default value is `'click'`, you can set value `'mouseover'`.**
 
 ```html
 ...
-<li class="dropdown" dropdown>
-  <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="#">Classic<b class="caret"></b></a>
-  <ul role="menu" class="dropdown-menu">
-    <li><a tabindex="-1" href="#"> Action </a></li>
-    <li><a tabindex="-1" href="#"> Another action </a></li>
-    <li><a tabindex="-1" href="#"> Something else here </a></li>
-    <li class="divider"></li>
-    <li><a tabindex="-1" href="#"> Separated link </a></li>
-  </ul>
+<li class="dropdown" uib-dropdown>
+	<a class="dropdown-toggle" uib-dropdown-toggle toggle-event="mouseover" href="#">Classic<b class="caret"></b></a>
+	<ul role="menu" class="dropdown-menu">
+		<li><a tabindex="-1" href="#"> Action </a></li>
+		<li><a tabindex="-1" href="#"> Another action </a></li>
+		<li><a tabindex="-1" href="#"> Something else here </a></li>
+		<li class="divider"></li>
+		<li><a tabindex="-1" href="#"> Separated link </a></li>
+	</ul>
 </li>
 ...
 ```
