@@ -8,52 +8,52 @@
 
 	function ExtendDropdownToggleDirective($provide) {
 
-		$provide.decorator('uibDropdownToggleDirective', ['$delegate', '$document', function($delegate, $document) {
+		$provide.decorator('uibDropdownToggleDirective', ['$delegate', function($delegate) {
 
 			var directive = $delegate[0];
 
-			var link = directive.link;
+			// var link = directive.link;
 
 			directive.compile = function() {
-			return function(scope, element, attrs, dropdownCtrl) {
+				return function(scope, element, attrs, dropdownCtrl) {
 
-				var toggleEvent = attrs.toggleEvent || 'click';
+					var toggleEvent = attrs.toggleEvent || 'click';
 
-				if ( !dropdownCtrl ) {
-					return;
-				}
-
-				dropdownCtrl.toggleElement = element;
-
-				var toggleDropdown = function(evt) {
-					evt.preventDefault();
-
-					if ( evt && element && element[0].parentElement.contains(evt.target) && dropdownCtrl.isOpen() && attrs.toggleEvent == 'mouseover' ) {
-					 return;
+					if ( !dropdownCtrl ) {
+						return;
 					}
 
-					if ( !element.hasClass('disabled') && !attrs.disabled ) {
-					scope.$apply(function() {
-						dropdownCtrl.toggle();
+					dropdownCtrl.toggleElement = element;
+
+					var toggleDropdown = function(evt) {
+						evt.preventDefault();
+
+						if ( evt && element && element[0].parentElement.contains(evt.target) && dropdownCtrl.isOpen() && attrs.toggleEvent == 'mouseover' ) {
+							return;
+						}
+
+						if ( !element.hasClass('disabled') && !attrs.disabled ) {
+							scope.$apply(function() {
+								dropdownCtrl.toggle();
+							});
+						}
+					};
+
+
+					element.bind(toggleEvent, toggleDropdown);
+
+
+					// WAI-ARIA
+					element.attr({ 'aria-haspopup': true, 'aria-expanded': false });
+					scope.$watch(dropdownCtrl.isOpen, function( isOpen ) {
+						element.attr('aria-expanded', !!isOpen);
 					});
-					}
+
+					scope.$on('$destroy', function() {
+						element.unbind(toggleEvent, toggleDropdown);
+					});
+
 				};
-
-
-				element.bind(toggleEvent, toggleDropdown);
-
-
-				// WAI-ARIA
-				element.attr({ 'aria-haspopup': true, 'aria-expanded': false });
-				scope.$watch(dropdownCtrl.isOpen, function( isOpen ) {
-					element.attr('aria-expanded', !!isOpen);
-				});
-
-				scope.$on('$destroy', function() {
-					element.unbind(toggleEvent, toggleDropdown);
-				});
-
-			};
 			};
 
 			return $delegate;
