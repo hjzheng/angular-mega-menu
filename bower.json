@@ -1,6 +1,6 @@
 {
   "name": "angular-mega-menu",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/hjzheng/angular-mega-menu",
   "authors": [
     "hjzheng <zhenghaoju700@163.com>"
@@ -18,7 +18,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-bootstrap": "~0.13.0",
-    "yamm3": "~1.1.0"
+    "angular-bootstrap": "2.x",
+    "yamm3": "https://github.com/geedmo/yamm3.git#master"
   }
 }
