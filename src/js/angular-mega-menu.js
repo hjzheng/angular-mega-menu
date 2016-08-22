@@ -83,6 +83,7 @@
 
 				if ( !openScope ) {
 					$document.bind(toggleEvent, closeDropdown);
+					if(toggleEvent !== 'click') $document.bind('click', closeDropdown);
 					$document.bind('keydown', keybindFilter);
 				}
 
@@ -100,6 +101,7 @@
 				if ( openScope === dropdownScope ) {
 					openScope = null;
 					$document.unbind(toggleEvent, closeDropdown);
+					if(toggleEvent !== 'click') $document.unbind('click', closeDropdown);
 					$document.unbind('keydown', keybindFilter);
 				}
 			};
@@ -112,7 +114,10 @@
 				if( evt && openScope.getAutoClose() === 'disabled' ){ return ; }
 
 				var toggleElement = openScope.getToggleElement();
-				if ( evt && toggleElement && toggleElement[0].parentElement.contains(evt.target) ) {
+				if ( evt.type === 'click' && toggleElement && toggleElement[0].contains(evt.target) ) {
+					return;
+				}
+				if ( evt.type !== 'click' && toggleElement && toggleElement[0].parentElement.contains(evt.target) ) {
 					return;
 				}
 
