@@ -28,7 +28,7 @@ angular.module('test', ['mega-menu']);
 
 ```html
 ...
-<li class="dropdown" uib-dropdown>
+<li class="dropdown" uib-dropdown auto-close="outsideClick">
 	<a class="dropdown-toggle" uib-dropdown-toggle toggle-event="mouseover" href="#">Classic<b class="caret"></b></a>
 	<ul role="menu" class="dropdown-menu">
 		<li><a tabindex="-1" href="#"> Action </a></li>
