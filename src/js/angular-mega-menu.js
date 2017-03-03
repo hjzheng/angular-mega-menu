@@ -89,6 +89,15 @@
 
 				if ( openScope && openScope !== dropdownScope ) {
 					openScope.isOpen = false;
+					if (toggleEvent === 'mouseover') {
+						$document.unbind('click', closeDropdown);
+						$document.unbind('mouseover', closeDropdown);
+						$document.bind('mouseover', closeDropdown);
+					} else {
+						$document.unbind('mouseover', closeDropdown);
+						$document.unbind('click', closeDropdown);
+						$document.bind('click', closeDropdown);
+					}
 				}
 
 				openScope = dropdownScope;
