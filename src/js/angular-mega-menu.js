@@ -81,7 +81,7 @@
 				var toggleElement = dropdownScope.getToggleElement();
 				var toggleEvent = toggleElement.attr('toggle-event') || 'click';
 
-				if ( !openScope ) {
+				if ( !openScope || openScope !== dropdownScope ) {
 					$document.bind(toggleEvent, closeDropdown);
 					if(toggleEvent !== 'click') $document.bind('click', closeDropdown);
 					$document.bind('keydown', keybindFilter);
