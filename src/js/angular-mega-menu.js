@@ -79,7 +79,7 @@
 			var open = function( dropdownScope ) {
 
 				var toggleElement = dropdownScope.getToggleElement();
-				var toggleEvent = toggleElement.attr('toggle-event') || 'click';
+				var toggleEvent = (toggleElement && toggleElement.attr('toggle-event')) || 'click';
 
 				if ( !openScope ) {
 					$document.bind(toggleEvent, closeDropdown);
@@ -105,7 +105,7 @@
 
 			var close = function( dropdownScope ) {
 				var toggleElement = dropdownScope.getToggleElement();
-				var toggleEvent = toggleElement.attr('toggle-event') || 'click';
+				var toggleEvent = (toggleElement && toggleElement.attr('toggle-event')) || 'click';
 
 				if ( openScope === dropdownScope ) {
 					openScope = null;
@@ -145,7 +145,7 @@
 			var keybindFilter = function( evt ) {
 				if ( evt.which === 27 ) {
 					openScope.focusToggleElement();
-					closeDropdown();
+					closeDropdown(evt);
 				}
 				else if ( openScope.isKeynavEnabled() && /(38|40)/.test(evt.which) && openScope.isOpen ) {
 					evt.preventDefault();
